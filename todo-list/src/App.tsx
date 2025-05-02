@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 
 function App() {
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState<string[]>([])
     const [todoValue, setTodoValue] = useState('')
 
     const persistData = (newList: string[]) => {
