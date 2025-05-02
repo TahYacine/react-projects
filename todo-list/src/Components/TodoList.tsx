@@ -1,22 +1,19 @@
-import React from 'react'
-import TodoCard from "./TodoCard" 
+import TodoCard from './TodoCard';
 
-export default function TodoList() {
-    let todos = [
-        'Gym',
-        'Vegetables',
-        'Cpp'
-    ]
+type TodoListProps = {
+  todos: string[];
+  onDelete: (todo: number) => void;
+  onEdit: (todo: number) => void;
+};
 
+export default function TodoList({ todos, onDelete, onEdit }: TodoListProps) {
   return (
-    <div>
-        <ul className = "main">
-            {todos.map((todo, todoIndex) => (
-                    <TodoCard key = {todoIndex}>
-                        <p>{todo}</p>
-                    </TodoCard>
-                    ))}
-        </ul>
-    </div>
-  )
+      <ul className="main">
+        {todos.map((todo, i) => (
+          <TodoCard key={i} index = {i} onDelete = {onDelete} onEdit= {onEdit}>
+            <p>{todo}</p>
+          </TodoCard>
+        ))}
+      </ul>
+  );
 }
